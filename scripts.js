@@ -1,8 +1,10 @@
-let debug = false;
+let debug = true;
+
 function titleCase(title) {
     let n = title.length;
     return title[0].toUpperCase() + title.slice(1, n);
 }
+
 function addItem(component_title) {
     if (debug) {
         console.log('Hello from addItem');
@@ -11,6 +13,7 @@ function addItem(component_title) {
     let item_text = getItem(component_title);
     insertItem(component_title, item_text);
 }
+
 function getItem(component_title) {
     if (debug) {
         console.log('Hello from getItem');
@@ -25,30 +28,72 @@ function getItem(component_title) {
     return input_text;
 }
 
+function editItem(evnt, component_title) {
+    if(debug) {
+        console.log(evnt.target);
+        console.log(evnt.target.parentNode);
+    }
+    
+    let list_item = evnt.target.parentNode;
+    let div_text = list_item.childNodes[0].innerText; // or .firstChild
+
+    let input_box = document.getElementById(`${component_title}_input_box`);
+    input_box.value = div_text;
+
+    let list = document.getElementById(`${component_title}_list`);
+    list.removeChild(list_item);
+
+    input_box.focus();
+
+    if(debug) {
+        console.log(list_item);
+        console.log(typeof list_item);
+        console.log(list_item.childNodes);
+        console.log(div_text);
+    }
+}
+
+function deleteItem(evnt, component_title) {
+    let list_item = evnt.target.parentNode;
+    let list = document.getElementById(`${component_title}_list`);
+    list.removeChild(list_item);
+}
+
 function insertItem(component_title, input_text) {
     if (debug) {
         console.log('Hello from insertItem');
     }
     let list_item = document.createElement("li");
     list_item.classList.add("component_list_item");
-    list_item.innerHTML = input_text;
-    
+    //list_item.innerHTML = input_text;
+    let list_item_text_div = document.createElement("div");
+    list_item_text_div.classList.add("list_item_text");
+    list_item_text_div.innerText = input_text;
+
     let del_button = document.createElement("button");
     del_button.type = "submit";
     del_button.classList.add("item_button");
     del_button.classList.add("item_del_button");
     del_button.innerHTML = "DELETE";
 
+    let doOnDeleteClick = (evnt) => { deleteItem(evnt, component_title) };
+    del_button.addEventListener("click", doOnDeleteClick);
+
     let edit_button = document.createElement("button");
     edit_button.type = "submit";
     edit_button.classList.add("item_button");
     edit_button.classList.add("item_edit_button");
     edit_button.innerHTML = "EDIT";
+    
+    let doOnEditClick = (evnt) => { editItem(evnt, component_title) };
+    edit_button.addEventListener("click", doOnEditClick);
 
     let list = document.getElementById(`${component_title}_list`);
+    list_item.append(list_item_text_div);
     list_item.append(edit_button);
     list_item.append(del_button);
     list.append(list_item);
+
 }
 
 function createComponent(component_title) {
@@ -103,5 +148,10 @@ function createDefaultComponents() {
     createComponent('opportunities');
     createComponent('threats');
 }
+
 //document.onload(createComponent("STRENGTHS"));
 window.onload = createDefaultComponents();
+
+// TODO
+// 1. replace innerHTMLs with innerTexts
+// 2. Look up text nodes
