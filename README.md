@@ -48,11 +48,17 @@ Readme Driven Development
 
 ## Roadmap
 ### Stage I
-1. ~~Setup Project, Hello World!~~
-2. HTML structure
-3. Basic CSS
-4. Dynamically alter list using JS
-5. use local storage
+1. ~~Setup Project, Hello World!~~(DONE: 2nd March 2023)
+2. ~~HTML structure~~
+    a. abandoned in favor of using JS to build components dynamically
+3. ~~JS function to create individual components~~(DONE: 3rd March 2023)
+4. ~~ADD task button should add a task to it's own component list~~(DONE: 3rd
+   March 2023)
+5. Edit button
+6. Delete button
+7. Basic CSS
+8. Dynamically alter list using JS
+9. Use local storage
 
 ### Stage II
 1. Add description tile
