@@ -3,7 +3,15 @@
 ## Why?
 I find this slightly more challenging than a generic to-do list. Besides, i
 wanted to perform a swat analysis on myself anyways. So, i decided to do this
-as my first ever (tutorial-less) project.
+as my first ever (tutorial-less) project. I am doing this to learn JS. 
+
+## Project Details
+1. JavaScript Project #1
+    a. Browser API
+        i. LocalStorage
+2. CSS Project #1
+    a. CSS basics
+    b. CSS Grid
 
 ## Features
 1. Perform SWOT Analysis
@@ -40,15 +48,16 @@ Readme Driven Development
 
 ## Roadmap
 ### Stage I
-1. Setup Project, Hello World!
-2. HTML structure
+1. ~~Setup Project, Hello World!~~
+2. ~~HTML structure~~
 3. Basic CSS
 4. Dynamically alter list using JS
 5. use local storage
+
 ### Stage II
-6. Add description tile
-7. Make it foldable
-8. UI Upgrade
+1. Add description tile
+2. Make it foldable
+3. UI Upgrade
     a. Dark theme
     b. Responsive CSS
 ### Stage III: Future
