@@ -49,7 +49,7 @@ Readme Driven Development
 ## Roadmap
 ### Stage I
 1. ~~Setup Project, Hello World!~~
-2. ~~HTML structure~~
+2. HTML structure
 3. Basic CSS
 4. Dynamically alter list using JS
 5. use local storage
